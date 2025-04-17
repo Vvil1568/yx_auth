@@ -1,5 +1,5 @@
-name: testauth
-description: "A new Flutter project."
+name: yx_auth
+description: "Yandex ID cross-platform authentication library for Flutter (Web, Android, iOS, MacOS, Windows)."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -16,7 +16,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.0+1
+version: 0.0.1
 
 environment:
   sdk: ^3.6.1
@@ -88,3 +88,13 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+keywords:
+  - yandex
+  - authentication
+  - oauth
+  - id
+  - cross-platform
+  - flutter
+homepage: https://github.com/Vvil1568/yx_auth
+repository: https://github.com/Vvil1568/yx_auth
