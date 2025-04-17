@@ -1,0 +1,2 @@
+E:/HSE/flutter/testauth/android/app/.cxx/Debug/68664o3u/armeabi-v7a/CMakeFiles/edit_cache.dir
+E:/HSE/flutter/testauth/android/app/.cxx/Debug/68664o3u/armeabi-v7a/CMakeFiles/rebuild_cache.dir
