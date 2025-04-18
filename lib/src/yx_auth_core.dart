@@ -94,25 +94,27 @@ class _YxAuthWebViewScreenState extends State<_YxAuthWebViewScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Yandex ID Auth')),
-      body: InAppWebView(
-        initialUrlRequest: URLRequest(url: WebUri(widget.authUrl)),
-        onLoadStop: (controller, url) {
-          if (_tokenDelivered) return;
-          if (url != null && url.toString().startsWith(widget.redirectUri)) {
-            final uri = Uri.parse(url.toString());
-            if (uri.fragment.isNotEmpty) {
-              final params = Uri.splitQueryString(uri.fragment);
-              if (params.containsKey('access_token')) {
-                final token = params['access_token']!;
-                _tokenDelivered = true;
-                widget.onTokenReceived(token);
-                if (mounted) Navigator.of(context).pop();
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        body: InAppWebView(
+          initialUrlRequest: URLRequest(url: WebUri(widget.authUrl)),
+          onLoadStart: (controller, url) {
+            if (_tokenDelivered) return;
+            if (url != null && url.toString().startsWith(widget.redirectUri)) {
+              final uri = Uri.parse(url.toString());
+              if (uri.fragment.isNotEmpty) {
+                final params = Uri.splitQueryString(uri.fragment);
+                if (params.containsKey('access_token')) {
+                  final token = params['access_token']!;
+                  _tokenDelivered = true;
+                  widget.onTokenReceived(token);
+                  if (mounted) Navigator.of(context).pop();
+                }
               }
             }
-          }
-        },
+          },
+        ),
       ),
     );
   }
